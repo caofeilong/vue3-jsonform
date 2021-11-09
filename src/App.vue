@@ -2,7 +2,8 @@
 import { ref } from 'vue';
 import TodoListVue from './components/TodoList.vue';
 import JsonForm from './components/JsonForm.vue';
-import { Schema } from './components/jsonForm/schema';
+import ElJsonForm from './components/ElJsonForm.vue';
+import { Schema } from './components/schema';
 
 const schema:Schema = [
   { field: 'username', type: 'text', label: '姓名' },
@@ -48,4 +49,6 @@ const formData = ref({});
   formdata:{{formData}}
   <h1>Todo List</h1>
   <TodoListVue />
+  <el-json-form :schema="schema"
+    v-model="formData"></el-json-form>
 </template>

@@ -2,10 +2,10 @@
 import {
   h, defineComponent, PropType, ref,
 } from 'vue';
-import FormArray from './jsonForm/FormArray.vue';
-import FormInput from './jsonForm/FormInput.vue';
-import FormObject from './jsonForm/FormObject.vue';
-import FormSelect from './jsonForm/FormSelect.vue';
+import FormArray from './elJsonForm/ElFormArray.vue';
+import FormInput from './elJsonForm/ElFormInput.vue';
+import FormObject from './elJsonForm/ElFormObject.vue';
+import FormSelect from './elJsonForm/ElFormSelect.vue';
 import { Schema, SchemaType } from './schema';
 
 const compMap:{[k in SchemaType]?: any} = {
@@ -56,6 +56,7 @@ export default defineComponent({
       }
       return h(renderComp, baseProps);
     });
+    // h('el-form',{model:});
     return h('div', children);
   },
 });

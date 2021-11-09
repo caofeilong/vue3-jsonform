@@ -1,8 +1,11 @@
 <template>
-  <div>
-    <span>{{ props.label }}</span>
-    <input  v-model="formData.value" :type="typeMap[props.type]">
-  </div>
+ <el-form
+    :model="formData"
+  >
+    <el-form-item :label="label">
+      <el-input  v-model="formData.value" :type="typeMap[type]" />
+    </el-form-item>
+  </el-form>
 </template>
 <script setup lang="ts">
 import {

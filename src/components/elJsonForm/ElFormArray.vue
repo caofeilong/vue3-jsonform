@@ -1,22 +1,24 @@
 <template>
-  <fieldset>
-    <legend>{{ label }}</legend>
+  <el-card style="margin-bottom:10px;">
+    <template #header>
+      <span >{{ label }}</span>
+    </template>
     <div v-for="(item,index) in formData" :key="formKeys[index]">
     <json-form
      :schema="properties"
      v-model="formData[index]">
     </json-form>
-    <button @click="remove(index)">remove</button>
-    <button @click="insertAfter(index)">insert after</button>
+    <el-button @click="remove(index)">remove</el-button>
+    <el-button @click="insertAfter(index)">insert after</el-button>
     <hr>
     </div>
-    <button @click="append">append</button>
-  </fieldset>
+    <el-button @click="append">append</el-button>
+  </el-card>
 </template>
 
 <script setup lang="ts">
 import { PropType, ref, watch } from 'vue';
-import JsonForm from '../JsonForm.vue';
+import JsonForm from '../ElJsonForm.vue';
 import { Schema } from '../schema';
 
 const props = defineProps({
